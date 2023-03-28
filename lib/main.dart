@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import './screens/user/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,13 +27,19 @@ class Start extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/images/banner.png'), // 배경 이미지
+          ),
+        ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              margin: EdgeInsets.all(30),
+              margin: EdgeInsets.fromLTRB(40, 140, 30, 30),
               height: 120,
               width: 120,
               child: Image.asset(
@@ -42,62 +49,41 @@ class Start extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(30),
+              margin: EdgeInsets.fromLTRB(40, 20, 0, 50),
               child: Text(
                 "학생청원,\n학생의 목소리를 듣다",
-                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w600),
               ),
             ),
             SizedBox(
-              height: 200.h,
+              height: 180.h,
             ),
-            // ignore: sort_child_properties_last
             Padding(
-              padding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 5.h),
+              padding: EdgeInsets.only(left: 30.w, right: 30.w),
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const Start_signup()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => Login()));
                 },
                 // ignore: sort_child_properties_last
-                child: Text(
-                  "새로 시작하기",
-                  style: TextStyle(
+                child: Container(
+                  child: Text(
+                    "로그인",
+                    style: TextStyle(
                       fontSize: 15.sp,
-                      color: Color(0xffA7D0D7),
-                      fontWeight: FontWeight.w600),
+                      color: Color(0xff111111),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  minimumSize: Size(double.infinity, 45.h),
-                  shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 1.0, color: Color(0xffA7D0D7)),
-                      borderRadius: BorderRadius.circular(20.h)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20.w, right: 20.w),
-              child: ElevatedButton(
-                onPressed: () {},
-                // ignore: sort_child_properties_last
-                child: Text(
-                  "로그인",
-                  style: TextStyle(
-                      fontSize: 15.sp,
-                      color: Color(0xffD6A7D7),
-                      fontWeight: FontWeight.w600),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                style: TextButton.styleFrom(
+                  elevation: 0,
+                  backgroundColor: Colors.white,
                   minimumSize: Size(double.infinity, 45.h),
                   shape: RoundedRectangleBorder(
                       side: const BorderSide(
                           width: 1.0, color: Color(0xffD6A7D7)),
-                      borderRadius: BorderRadius.circular(20.h)),
+                      borderRadius: BorderRadius.circular(10.h)),
                 ),
               ),
             ),
